@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Section</title>
+        <script>
+
+            window.onpopstate = function(event){
+                showSection(event.state.section)
+            }
+
+            document.addEventListener('DOMContentLoaded', function(){
+                document.querySelectorAll('button').forEach(button => {
+                    button.onclick = function(){
+                        const section = this.dataset.section;
+                        history.pushState({section: section}, "", `section${section}`);
+                        showSection(this.dataset.section)
+                    }
+                })
+
+            })
+
+            function showSection(sectionNum){
+                fetch(`section/${sectionNum}`).then(response => response.text())
+                .then(text => {
+                    document.querySelector('#section-text').innerHTML = text
+                })
+            }
+
+        </script>
+    </head>
+    <body>
+        <div>
+            <h1 id="section-text">Hello!</h1>
+
+        </div>
+
+        <button data-section="1">Section 1</button>
+        <button data-section="2">Section 2</button>
+        <button data-section="3">Section 3</button>
+    
+    </body>
+</html>

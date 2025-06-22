@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Scroll</title>
+        <style>
+            h2{
+                font-family : Arial, Helvetica, sans-serif;
+                color: black;
+                border-bottom: 1px solid black;
+                width: 200px;
+            }
+            .font-end{
+                color: white;
+                border-bottom: 1px solid white;
+            }
+        
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function(){
+
+                window.onscroll = () => {
+
+                    if(window.innerHeight + window.scrollY >= document.body.offsetHeight){
+                        document.querySelector('body').style.background = 'black';
+
+                        document.querySelectorAll('h2').forEach(heading => {
+                            heading.classList.add('font-end')
+                        })
+                    } else {
+                        document.querySelector('body').style.background = 'white';
+
+                        document.querySelectorAll('h2').forEach(heading =>{
+                            heading.classList.remove('font-end')
+                        })
+                    }
+                }
+            })
+
+        </script>
+    </head>
+    <body>
+
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+        <h2>Element</h2>
+
+    </body>
+</html>
