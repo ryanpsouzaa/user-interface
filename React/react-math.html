@@ -8,6 +8,28 @@
 
         <!-- Babel (para JSX funcionar no navegador) -->
         <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <style>
+            #main-div{
+                font-family: Arial, Helvetica, sans-serif;
+                text-align: center;
+
+            }
+
+            #question{
+                font-size: 50px;
+
+            }
+
+            .incorrect{
+                color: red;
+            }
+
+            #winner-div{
+                font-size: 78px;
+                color: green;
+            }
+
+        </style>
 
         <script type="text/babel">
             function App(){
@@ -15,20 +37,57 @@
                     num1: 1,
                     num2: 2,
                     response: "",
-                    score: 0
+                    score: 0,
+                    incorrect: false
                 })
 
                 function updateInput(event){
-                    setState(
+                    setState({
                         ...state,
-                        response = event.target.value
+                        response : event.target.value
+                    })
+                }
+                
+                function submitAnswer(event){
+                    if(event.key === "Enter"){
+                        const answer = parseInt(state.response);
+                        if(state.num1 + state.num2 === answer){
+                            //Right answer => +1 for score
+                            setState({
+                                ...state,
+                                //Math.ceil => arredonda os numeros
+                                //Math.random => gera numero aleatorio entre 0 e 1
+                                //Ao multiplicar por 10, gerara um numero entre 0 e 10
+                                num1: Math.ceil(Math.random() * 10),
+                                num2: Math.ceil(Math.random() * 10),
+                                response: "",
+                                score : state.score + 1,
+                                incorrect: false
+                            });
+                        } else{
+                            //Wrong answer => -1 for score
+                            setState({
+                                ...state,
+                                response: "",
+                                score : state.score - 1,
+                                incorrect: true
+                            });
+                        }
+                    }
+                }
+
+                if(state.score >= 10){
+                    return(
+                        <div id="winner-div">You Won!</div>
                     )
+
                 }
 
                 return(
                     <div>
-                        <div>{state.num1} + {state.num2}</div>
-                        <input onChange={updateInput} value={state.response}/>
+                        <div id="question" className={state.incorrect ? "incorrect" : ""} >{state.num1} + {state.num2}</div>
+                        <input autoFocus={true} onKeyPress={submitAnswer} onChange={updateInput} value={state.response}/>
+                        <div>Score: {state.score}</div>
                     </div>
                 )
 
