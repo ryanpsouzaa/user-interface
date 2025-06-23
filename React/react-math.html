@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>React</title>
+        <!-- React + ReactDOM -->
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+        <!-- Babel (para JSX funcionar no navegador) -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <script type="text/babel">
+            function App(){
+                const [state, setState] = React.useState({
+                    num1: 1,
+                    num2: 2,
+                    response: "",
+                    score: 0
+                })
+
+                function updateInput(event){
+                    setState(
+                        ...state,
+                        response = event.target.value
+                    )
+                }
+
+                return(
+                    <div>
+                        <div>{state.num1} + {state.num2}</div>
+                        <input onChange={updateInput} value={state.response}/>
+                    </div>
+                )
+
+                
+            }
+            const root = ReactDOM.createRoot(document.querySelector("#main-div"));
+            root.render(<App/>);
+
+        </script>
+    </head>
+    <body>
+        <div id="main-div">
+
+        </div>
+    </body>
+</html>

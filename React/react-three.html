@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>React</title>
+        <!-- React + ReactDOM -->
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+        <!-- Babel (para JSX funcionar no navegador) -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <script type="text/babel">
+            function Counter(){
+                const [count, setCount] = React.useState(0);
+
+                function updateCounter(){
+                    setCount(count + 1);
+                }
+
+                return(
+                    <div>
+                        <h1>{count}</h1>
+                        <button onClick={updateCounter}>Increment</button>
+                    </div>
+                )
+            }
+            const root = ReactDOM.createRoot(document.querySelector('#main-div'));
+            root.render(<Counter/>);
+        </script>
+    </head>
+    <body>
+        <div id="main-div">
+
+        </div>
+    </body>
+</html>
